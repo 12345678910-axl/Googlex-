@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mi Buscador</title>
+
+<style>
+body{
+font-family:Arial,sans-serif;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+height:100vh;
+background:#f8f9fa;
+margin:0;
+}
+
+h1{
+font-size:60px;
+margin-bottom:20px;
+}
+
+input{
+width:80%;
+max-width:600px;
+padding:15px;
+border-radius:30px;
+border:1px solid #ccc;
+font-size:18px;
+outline:none;
+}
+
+button{
+margin-top:20px;
+padding:12px 25px;
+border:none;
+border-radius:25px;
+font-size:16px;
+cursor:pointer;
+}
+</style>
+</head>
+<body>
+
+<h1>MiBuscador</h1>
+
+<input id="query" placeholder="Buscar en Internet">
+
+<button onclick="buscar()">Buscar</button>
+
+<script>
+function buscar(){
+const q = document.getElementById("query").value.trim();
+
+if(!q) return;
+
+window.location.href =
+"https://www.google.com/search?q=" +
+encodeURIComponent(q);
+}
+
+document.getElementById("query")
+.addEventListener("keydown", e=>{
+if(e.key==="Enter") buscar();
+});
+</script>
+
+</body>
+</html>
